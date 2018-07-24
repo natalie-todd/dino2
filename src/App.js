@@ -1,19 +1,39 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+import Header from './components/Header'
+import Footer from './components/Footer'
+import Profiles from './components/Profiles'
+
+const dinoData = './dinosaurs.json'
+
 class App extends Component {
+  state = {
+    employeeinfo: []
+  }
+
+  componentDidMount() {
+    this.seeEmployees();
+  }
+
+  seeEmployees = () => {
+    return fetch(dinoData)
+      .then(res => res.json())
+      .then(employee => this.setState({ employee }));
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <React.Fragment>
+        <Header />
+        <main>
+          <section id='profiles-container'>
+            <h2>Profiles</h2>
+            <Profiles employee={this.state.employee} />
+          </section>
+        </main>
+        <Footer />
+      </React.Fragment>
     );
   }
 }
