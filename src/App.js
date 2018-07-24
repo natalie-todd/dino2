@@ -9,7 +9,7 @@ const dinoData = './dinosaurs.json'
 
 class App extends Component {
   state = {
-    employeeinfo: null
+    employeeinfo: []
   }
 
   componentDidMount() {
@@ -29,8 +29,7 @@ class App extends Component {
         <main>
           <section id='profiles-container'>
             <h2>Profiles</h2>
-            {this.state.employeeinfo ? <Profiles employeeinfo={this.state.employeeinfo} /> : null}
-            
+            <Profiles employeeinfo={this.state.employeeinfo}/> 
           </section>
         </main>
         <Footer />
