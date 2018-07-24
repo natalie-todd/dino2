@@ -1,9 +1,10 @@
 import React from 'react'
 
 export default function Skilllist({ employeeinfo }) {
+    
+        return (
 
-    return (
+            <p>Test test for the Skilllist</p>
+        );
+    }
 
-        <p>Test test for the Skilllist</p>
-    );
-}

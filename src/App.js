@@ -4,12 +4,12 @@ import './App.css';
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Profiles from './components/Profiles'
-
+// import Skilllist from '.components/Skilllist';
 const dinoData = './dinosaurs.json'
 
 class App extends Component {
   state = {
-    employeeinfo: []
+    employeeinfo: null
   }
 
   componentDidMount() {
@@ -19,7 +19,7 @@ class App extends Component {
   seeEmployees = () => {
     return fetch(dinoData)
       .then(res => res.json())
-      .then(employee => this.setState({ employee }));
+      .then(employeeinfo => this.setState({ employeeinfo }));
   }
 
   render() {
@@ -29,7 +29,8 @@ class App extends Component {
         <main>
           <section id='profiles-container'>
             <h2>Profiles</h2>
-            <Profiles employee={this.state.employee} />
+            {this.state.employeeinfo ? <Profiles employeeinfo={this.state.employeeinfo} /> : null}
+            
           </section>
         </main>
         <Footer />
