@@ -1,10 +1,13 @@
 import React from 'react'
 
-export default function Skilllist({ employeeinfo }) {
+const Skilllist = ({ skills }) => {
     
         return (
 
-            <p>Test test for the Skilllist</p>
+            skills.map(skill => {
+                return <li key = {skill} >
+                    {skill} </li>
+            })
         );
     }
 
