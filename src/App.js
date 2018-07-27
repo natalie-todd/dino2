@@ -4,12 +4,13 @@ import './App.css';
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Profiles from './components/Profiles'
-// import Skilllist from '.components/Skilllist';
+
 const dinoData = './dinosaurs.json'
 
 class App extends Component {
   state = {
-    employeeinfo: []
+    employeeinfo: [],
+    showSkills: false, 
   }
 
   componentDidMount() {
@@ -22,6 +23,13 @@ class App extends Component {
       .then(employeeinfo => this.setState({ employeeinfo }));
   }
 
+  toggleVisibility = (name) => {
+    if(this.state.showSkills==name) {
+      name=false;
+    }
+    this.setState({showSkills: name})
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -29,7 +37,9 @@ class App extends Component {
         <main>
           <section id='profiles-container'>
             <h2>Profiles</h2>
-            <Profiles employeeinfo={this.state.employeeinfo}/> 
+            <Profiles employeeinfo={this.state.employeeinfo}
+            showSkills={this.state.showSkills}
+            toggleVisibility={this.toggleVisibility}/> 
           </section>
         </main>
         <Footer />

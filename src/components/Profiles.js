@@ -1,36 +1,31 @@
 import React from 'react';
 import Skilllist from './Skilllist';
 
-export default function Profiles({ employeeinfo }) {
-    // export default class Profiles extends Component {
-    //     constructor(props) {
-    //         super(props)
-    //         this.state = { notshowing: true };
+const Profiles = ({ showSkills, employeeinfo, toggleVisibility }) => {
 
-    //         this.toggleList = this.toggleList.bind(this)
-    //     }
-
-    //     toggleList = () => {
-    //         const { notshowing } = this.state;
-    //         this.setState({ notshowing: !notshowing })
-    //     }
-
-    //     componentDidMount() {
-    //         console.log(this.props.employeeinfo)
-    //     }
     return (
         <ul id='profiles'>
             {employeeinfo.map((employee, index) =>
-                <li key={index}>
+                <li key={name} onClick={() =>
+                    toggleVisibility(name)}>
                     <div className='profile-card'>
                         <header className='profile-header'>
                             <img src={employee.image} />
                             <h2>{employee.name}</h2>
                             <Skilllist />
                         </header>
+                        <section className={showSkills == name ? 'skills-container'
+                            : 'skills-container hidden'}>
+                            <h4>Skills</h4>
+                            <ul className='skills-list'>
+                                <Skilllist skills={skills} />
+                            </ul>
+                            </section>
                     </div>
                 </li>)}
-            </ul>
-        )
-    }
+        </ul>
+    )
+}
+
+export default Profiles;
 
