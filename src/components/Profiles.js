@@ -2,16 +2,15 @@ import React from 'react';
 import Skilllist from './Skilllist';
 
 const Profiles = ({ showSkills, employeeinfo, toggleVisibility }) => {
-
     return (
-        employeeinfo.map((employee, skills, image) =>
-            <li key={employee} onClick={() =>
+        employeeinfo.map(({employee, skills, image}) => <li key={employee} 
+        onClick={() =>
                 toggleVisibility(employee)}>
                 <div className='profile-card'>
                     <header className='profile-header'>
-                        <img src={employee.image} />
-                        <h2>{employee.name}</h2>
-                        <Skilllist />
+                        <img src={image} />
+                        <h2>{employeeinfo.name}</h2>
+                        {/* <Skilllist /> */}
                     </header>
                     <section className={showSkills == employee ? 'skills-container'
                         : 'skills-container hidden'}>
