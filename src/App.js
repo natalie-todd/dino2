@@ -37,9 +37,11 @@ class App extends Component {
         <main>
           <section id='profiles-container'>
             <h2>Profiles</h2>
+            <ul id='profiles'>
             <Profiles employeeinfo={this.state.employeeinfo}
             showSkills={this.state.showSkills}
             toggleVisibility={this.toggleVisibility}/> 
+            </ul>
           </section>
         </main>
         <Footer />
