@@ -23,6 +23,7 @@
 3. Navigate to this folder and run `npm test`.
 
 #### Deployed Link
+https://dinotwo-3a890.firebaseapp.com/
 
 #### Framework of choice
 
