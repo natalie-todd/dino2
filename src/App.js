@@ -24,7 +24,7 @@ class App extends Component {
   }
 
   toggleVisibility = (name) => {
-    if(this.state.showSkills==name) {
+    if(this.state.showSkills===name) {
       name=false;
     }
     this.setState({showSkills: name})
